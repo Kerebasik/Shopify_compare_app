@@ -1,0 +1,10 @@
+{
+  "product": {
+    "stars": {
+      "label": "Ratings"
+    },
+    "home": {
+      "recommendationText": "Compare"
+    }
+  }
+}

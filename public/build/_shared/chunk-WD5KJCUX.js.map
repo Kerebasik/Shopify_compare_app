@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/constants/routes.ts"],
+  "sourcesContent": ["// REMIX HMR BEGIN\nimport * as __hmr__ from \"remix:hmr\";\nif (import.meta) {\nimport.meta.hot = __hmr__.createHotContext(\n//@ts-expect-error\n\"app\\\\constants\\\\routes.ts\"\n);\nimport.meta.hot.lastModified = \"1701702910498.2112\";\n}\n// REMIX HMR END\n\nenum Routes {\r\n    ROOT = \"/app\",\r\n    ATTRIBUTES = \"/app/attributes\",\r\n    COMPARISON = \"/app/comparison\",\r\n    ADD_TO_COMPARE = \"/app/comparison/atc\",\r\n    STICKY_FIXED = \"/app/comparison/fixed-btn\",\r\n    COMPARISON_TOOLBAR = \"/app/comparison/toolbar\",\r\n    COMPARISON_TABLE = \"/app/comparison/table\",\r\n    GRID_PAGE = \"/app/comparison/grid\"\r\n}\r\n\r\nexport {Routes}"],
+  "mappings": ";;;;;;AACA;AACA,IAAI,aAAa;AACjB,cAAY,MAAc;AAAA;AAAA,IAE1B;AAAA,EACA;AACA,cAAY,IAAI,eAAe;AAC/B;",
+  "names": []
+}

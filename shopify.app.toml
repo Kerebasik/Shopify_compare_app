@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "product-compare"
+client_id = "867da3c74f082a014af63aa49798b82d"
+application_url = "https://surround-synthesis-vat-based.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_themes,write_themes,read_product_listings"
+
+[auth]
+redirect_urls = [
+  "https://surround-synthesis-vat-based.trycloudflare.com/auth/callback",
+  "https://surround-synthesis-vat-based.trycloudflare.com/auth/shopify/callback",
+  "https://surround-synthesis-vat-based.trycloudflare.com/api/auth/callback",
+  "https://surround-synthesis-vat-based.trycloudflare.com/.shopify/graphiql/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "firststore228337.myshopify.com"

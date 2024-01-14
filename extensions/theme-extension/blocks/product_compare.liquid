@@ -1,0 +1,61 @@
+{% assign product_def_meta = app.metafields.default_product_meta.product_comparison.value %}
+{% assign product_custom_meta = app.metafields.product_meta %}
+{% assign fixedButtonStyle = app.metafields.fixedButton %}
+{% assign productButtonStyle = app.metafields.productButton %}
+{% assign toolbarStyle = app.metafields.toolbar %}
+{% assign tableStyle = app.metafields.table %}
+
+<div id="myProductData"></div>
+<div id="myCustomProductData"></div>
+<div id="myFixedBtnStyle"></div>
+<div id="myProductButtonStyle"></div>
+<div id="myToolbarStyle"></div>
+<div id="myTableStyle"></div>
+<script
+  defer
+>
+  const productData = {{ product | json }};
+  const productDefaultMeta = {{ product_def_meta | json }}
+  const productCustomMeta = {{ product_custom_meta | json }}
+  const fixedBtnStyle = {{ fixedButtonStyle |  json }}
+  const productButtonStyle = {{ productButtonStyle |  json }}
+  const toolbarStyle = {{ toolbarStyle |  json }}
+  const tableStyle = {{ tableStyle |  json }}
+  const url = {{ product.url | json }} + "?variant={{ product.first_available_variant.id }}";
+  if (productData) {
+    productData.url = url
+  for (const key in productCustomMeta) {
+    if (Object.hasOwnProperty.call(productCustomMeta, key) ) {
+      const element = productCustomMeta[key];
+      for (const item of element) {
+        if (item.productId.includes(productData.id.toString())) {
+          productData[key] = item.value
+        }
+      }
+      
+    }
+  }
+  }
+  const dataProdEl = document.getElementById("myProductData")
+  const dataFixedBtnStyle = document.getElementById("myFixedBtnStyle")
+  const customDataProdEl = document.getElementById("myCustomProductData")
+  const dataProdBtnStyle = document.getElementById("myProductButtonStyle")
+  const dataToolbarStyleEl = document.getElementById("myToolbarStyle")
+  const dataTableStyleEl = document.getElementById("myTableStyle")
+  dataToolbarStyleEl.setAttribute("data-toolbar-style",`${JSON.stringify(toolbarStyle)}` )
+  dataProdEl.setAttribute("data-my-var",`${JSON.stringify(productDefaultMeta)}` )
+  dataProdBtnStyle.setAttribute("data-prod-btn-style",`${JSON.stringify(productButtonStyle)}` )
+  dataFixedBtnStyle.setAttribute("data-fixed-btn", `${JSON.stringify(fixedBtnStyle)}`)
+  customDataProdEl.setAttribute("data-my-custom-var",`${JSON.stringify(productCustomMeta)}` )
+  dataTableStyleEl.setAttribute("data-table-style",JSON.stringify(tableStyle))
+  localStorage.setItem("product-data", JSON.stringify(productData))
+</script>
+
+{% schema %}
+{
+  "name": "Product compare",
+  "target": "body",
+  "javascript": "main.a805dd0b2f6830a28c9b.js",
+  "settings": []
+}
+{% endschema %}

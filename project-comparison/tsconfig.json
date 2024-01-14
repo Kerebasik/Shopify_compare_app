@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    
+   
+"paths": {
+      "*": ["*", "src/*"]
+    },
+    
+   
+"noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    
+   
+"moduleResolution": "node",
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true, 
+    "types": ["node"] 
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/index.tsx",
+    "src/**/*.png",
+    "src/**/*.svg"  ]
+}
